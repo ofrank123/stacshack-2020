@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://res/obj/BaseTerrain/BaseTerrain.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="MeshLibrary" id=1]
+item/0/name = "Base"
+item/0/mesh = ExtResource( 1 )
+item/0/mesh_transform = null
+item/0/shapes = [  ]
+item/0/navmesh_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -30, 30, 30 )
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource( 1 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
