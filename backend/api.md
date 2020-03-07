@@ -6,27 +6,24 @@
 
 ```json
 {
-  "Create": {
-    "username": "Hunter2"
-  }
+  "type": "Create",
+  "username": "Hunter2"
 }
 ```
 
 ```json
 {
-  "Join": {
-    "username": "Hunter2",
-    "game_id": "96707aea-0e52-4659-ae33-7e4b0bf8e94c"
-  }
+  "type": "Join",
+  "username": "Hunter2",
+  "game_id": "929a3d9d-ca90-44d9-b583-ae0dd5ad9fbd"
 }
 ```
 
 ```json
 {
-  "Move": {
-    "action": "Attack",
-    "coordinate": [12, 41]
-  }
+  "type": "Move",
+  "action": "Attack",
+  "coordinate": [12, 41]
 }
 ```
 
@@ -36,68 +33,59 @@
 
 ```json
 {
-  "Create": {
-    "user_id": "620c80ed-af24-43ca-b20d-681c5352bcc6",
-    "game_id": "2cf50c58-4ff1-42c9-af68-2deb91fe027e"
-  }
+  "type": "Create",
+  "user_id": "13a94ae5-aa42-4fe5-8bc9-fef5050cbc8a",
+  "game_id": "e3ca0fbc-9113-4027-acd0-971ec0838a00"
 }
 ```
 
 ```json
 {
-  "Join": {
-    "user_id": "7b775b01-9210-495a-82f3-7e13a0f89838"
-  }
+  "type": "Join",
+  "user_id": "5141d1f2-e39a-4dbf-a3e3-52c2228a93fb"
 }
 ```
 
 ```json
 {
-  "Move": {
-    "last_move": {
-      "action": "Attack",
-      "coordinate": [12, 41]
-    },
-    "board": {
-      "size": 16,
-      "tiles": [
-        {
-          "kind": "Resource",
-          "owner": null,
-          "discovered": false
-        },
-        {
-          "kind": "Empty",
-          "owner": "7b775b01-9210-495a-82f3-7e13a0f89838",
-          "discovered": true
-        },
-        ...{
-          "kind": "Empty",
-          "owner": null,
-          "discovered": true
-        },
-        {
-          "kind": "Resource",
-          "owner": "7b775b01-9210-495a-82f3-7e13a0f89838",
-          "discovered": false
-        }
-      ]
-    },
-    "players": [
+  "type": "Move",
+  "last_move": {
+    "action": "Attack",
+    "coordinate": [12, 41]
+  },
+  "board": {
+    "size": 16,
+    "tiles": [
       {
-        "id": "56b8e99a-c525-456c-8811-70d5f867fb97",
-        "resources": 5325,
-        "color": 4293689558,
-        "current": false
+        "kind": "Empty",
+        "owner": null,
+        "discovered": false
       },
       {
-        "id": "0baa88ef-5acc-4d68-9755-7cd9dcfde8d2",
-        "resources": 0,
-        "color": 4286984594,
-        "current": false
+        "kind": "Empty",
+        "owner": null,
+        "discovered": false
+      },
+      ...{
+        "kind": "Empty",
+        "owner": null,
+        "discovered": false
+      },
+      {
+        "kind": "Empty",
+        "owner": null,
+        "discovered": false
       }
-    ],
-    "expiry": "2020-03-07T17:09:32.189539Z"
-  }
+    ]
+  },
+  "players": [
+    {
+      "id": "fa6cbe41-5a3b-4c7b-b9bc-abd4d56e2037",
+      "resources": 0,
+      "color": 4287475721,
+      "current": false
+    }
+  ],
+  "expiry": "2020-03-07T18:59:39.420393Z"
 }
 ```

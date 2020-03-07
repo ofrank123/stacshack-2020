@@ -8,3 +8,5 @@ pub struct Game {
     pub board: Board,
     pub players: Vec<Player>,
 }
+
+impl Game {}

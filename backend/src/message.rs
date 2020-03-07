@@ -6,6 +6,7 @@ use {
 };
 
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(tag = "type")]
 pub enum ClientMessage {
     Join { username: String, game_id: Uuid },
     Create { username: String },
@@ -26,6 +27,7 @@ pub enum Action {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(tag = "type")]
 pub enum ServerMessage {
     Join {
         user_id: Uuid,

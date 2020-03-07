@@ -23,7 +23,10 @@ use {
         time::Duration,
     },
     tokio::net::{TcpListener, TcpStream},
-    tokio_tungstenite::{accept_async, tungstenite::Error},
+    tokio_tungstenite::{
+        accept_async,
+        tungstenite::{self, Error},
+    },
     tungstenite::{Message, Result},
     uuid::Uuid,
 };
@@ -43,37 +46,37 @@ async fn accept_connection(peer: SocketAddr, stream: TcpStream, state: State) {
 
 async fn handle_connection(peer: SocketAddr, stream: TcpStream, state: State) -> Result<()> {
     let ws_stream = accept_async(stream).await.expect("Failed to accept");
-    info!("New WebSocket connection: {}", peer);
+    info!("Opened connection: {}", peer);
     let (mut ws_sender, mut ws_receiver) = ws_stream.split();
-    let mut interval = tokio::time::interval(Duration::from_millis(1000));
 
-    // Echo incoming WebSocket messages and send a message periodically every second.
-
-    let mut msg_fut = ws_receiver.next();
-    let mut tick_fut = interval.next();
     loop {
-        match select(msg_fut, tick_fut).await {
-            Either::Left((msg, tick_fut_continue)) => {
-                match msg {
-                    Some(msg) => {
-                        let msg = msg?;
-                        if msg.is_text() || msg.is_binary() {
-                            ws_sender.send(msg).await?;
-                        } else if msg.is_close() {
+        match ws_receiver.next().await {
+            Some(msg) => {
+                let msg = msg?;
+
+                if msg.is_text() {
+                    debug!("Received text message: {:?}", msg);
+                    let response = match serde_json::from_str::<ClientMessage>(&msg.into_text()?) {
+                        Ok(ClientMessage::Create { username }) => {
+                            tungstenite::Message::text("test")
+                        }
+                        Ok(ClientMessage::Join { username, game_id }) => {
+                            tungstenite::Message::text("test")
+                        }
+                        Ok(ClientMessage::Move(m)) => tungstenite::Message::text("test"),
+                        Err(e) => {
+                            error!("Error occurred while parsing: {:?}", e);
                             break;
                         }
-                        tick_fut = tick_fut_continue; // Continue waiting for tick.
-                        msg_fut = ws_receiver.next(); // Receive next WebSocket message.
-                    }
-                    None => break, // WebSocket stream terminated.
-                };
+                    };
+                    ws_sender.send(response).await?;
+                } else {
+                    error!("Received invalid data: {:?}", msg);
+                    break;
+                }
             }
-            Either::Right((_, msg_fut_continue)) => {
-                ws_sender.send(Message::Text("tick".to_owned())).await?;
-                msg_fut = msg_fut_continue; // Continue receiving the WebSocket message.
-                tick_fut = interval.next(); // Wait for next tick.
-            }
-        }
+            None => break, // WebSocket stream terminated.
+        };
     }
 
     Ok(())
@@ -135,7 +138,7 @@ async fn main() {
     // Game State
     let state = Arc::new(Mutex::new(HashMap::<Uuid, Game>::new()));
 
-    let addr = "127.0.0.1:8088";
+    let addr = "0.0.0.0:22220";
     let mut listener = TcpListener::bind(&addr).await.expect("Can't listen");
     info!("Listening on: {}", addr);
 
@@ -148,3 +151,48 @@ async fn main() {
         tokio::spawn(accept_connection(peer, stream, state.clone()));
     }
 }
+
+/*
+let client_msg1 = ClientMessage::Create {
+    username: "Hunter2".to_string(),
+};
+
+let client_msg2 = ClientMessage::Join {
+    username: "Hunter2".to_string(),
+    game_id: Uuid::new_v4(),
+};
+
+let client_msg3 = ClientMessage::Move(message::Move {
+    action: message::Action::Attack,
+    coordinate: (12, 41),
+});
+
+println!("{}", serde_json::to_string_pretty(&client_msg1).unwrap());
+println!("{}", serde_json::to_string_pretty(&client_msg2).unwrap());
+println!("{}", serde_json::to_string_pretty(&client_msg3).unwrap());
+
+let server_msg1 = ServerMessage::Create {
+    game_id: Uuid::new_v4(),
+    user_id: Uuid::new_v4(),
+};
+
+let server_msg2 = ServerMessage::Join {
+    user_id: Uuid::new_v4(),
+};
+
+let server_msg3 = ServerMessage::Move {
+    last_move: message::Move {
+        action: message::Action::Attack,
+        coordinate: (12, 41),
+    },
+    board: Board::new(16),
+    players: vec![Player::new(Uuid::new_v4())],
+    expiry: Utc::now() + chrono::Duration::seconds(15),
+};
+
+println!("{}", serde_json::to_string_pretty(&server_msg1).unwrap());
+println!("{}", serde_json::to_string_pretty(&server_msg2).unwrap());
+println!("{}", serde_json::to_string_pretty(&server_msg3).unwrap());
+
+std::process::exit(0);
+*/
