@@ -2,108 +2,102 @@
 
 ## Request
 
-```json
-{
-    "game": "<UUIDV4>",
-    "user": "<UUIDV4>",
-    "kind": "Join" | "Fetch" | "Action": {
-                                   "kind": "Explore" | "Improve" | "Attack"
-                                   "coordinate": [X,Y]
-                               }
-}
-```
-
 ### Examples
 
-Request to attack `(12,3)`
-
 ```json
 {
-  "game": "38f7f65d-76bc-4d93-9226-ad8d1f342711",
-  "user": "ae0ea178-3172-4b8c-9315-bd3e9942abfa",
-  "kind": {
-    "Action": {
-      "kind": "Attack",
-      "coordinate": [12, 3]
-    }
+  "Create": {
+    "username": "Hunter2"
   }
 }
 ```
 
-Request to join the game `9d0bddf3-c109-488d-81b7-449b6018bfbd` with user ID `cbfa7b5d-837a-4a2b-8dd8-0f44172721b3`.
-
 ```json
 {
-  "game": "9d0bddf3-c109-488d-81b7-449b6018bfbd",
-  "user": "cbfa7b5d-837a-4a2b-8dd8-0f44172721b3",
-  "kind": "Join"
+  "Join": {
+    "username": "Hunter2",
+    "game_id": "96707aea-0e52-4659-ae33-7e4b0bf8e94c"
+  }
 }
 ```
 
-Request to attack `(34,94)`
-
 ```json
 {
-  "game": "efeea5cc-38b1-4fd6-b6a9-1c5722fa3f3b",
-  "user": "89eb0876-89e2-4bc6-b300-923668fa8cd3",
-  "kind": {
-    "Action": {
-      "kind": "Explore",
-      "coordinate": [34, 94]
-    }
+  "Move": {
+    "action": "Attack",
+    "coordinate": [12, 41]
   }
 }
 ```
 
 ## Response
 
-Every response is the full game state
+### Examples
 
 ```json
 {
-  "board": {
-    "size": 16,
-    "tiles": [
-      {
-        "kind": "Empty",
-        "owner": null
-      },
+  "Create": {
+    "user_id": "620c80ed-af24-43ca-b20d-681c5352bcc6",
+    "game_id": "2cf50c58-4ff1-42c9-af68-2deb91fe027e"
+  }
+}
+```
 
-        "kind": "Resource",
-        "owner": "b017b439-d2ae-45b9-bd8b-91cd5f0b7c9f"
-      },
-      ...
+```json
+{
+  "Join": {
+    "user_id": "7b775b01-9210-495a-82f3-7e13a0f89838"
+  }
+}
+```
+
+```json
+{
+  "Move": {
+    "last_move": {
+      "action": "Attack",
+      "coordinate": [12, 41]
+    },
+    "board": {
+      "size": 16,
+      "tiles": [
+        {
+          "kind": "Resource",
+          "owner": null,
+          "discovered": false
+        },
+        {
+          "kind": "Empty",
+          "owner": "7b775b01-9210-495a-82f3-7e13a0f89838",
+          "discovered": true
+        },
+        ...{
+          "kind": "Empty",
+          "owner": null,
+          "discovered": true
+        },
+        {
+          "kind": "Resource",
+          "owner": "7b775b01-9210-495a-82f3-7e13a0f89838",
+          "discovered": false
+        }
+      ]
+    },
+    "players": [
       {
-        "kind": "Empty",
-        "owner": "23f77d23-8c9b-4cd2-9ad2-9e2d5fe71821"
+        "id": "56b8e99a-c525-456c-8811-70d5f867fb97",
+        "resources": 5325,
+        "color": 4293689558,
+        "current": false
       },
       {
-        "kind": "Resource",
-        "owner": null
+        "id": "0baa88ef-5acc-4d68-9755-7cd9dcfde8d2",
+        "resources": 0,
+        "color": 4286984594,
+        "current": false
       }
-    ]
-  },
-  "players": [
-    {
-      "id": "b017b439-d2ae-45b9-bd8b-91cd5f0b7c9f",
-      "resources": 1240,
-      "color": 4289638500
-    },
-    {
-      "id": "23f77d23-8c9b-4cd2-9ad2-9e2d5fe71821",
-      "resources": 44,
-      "color": 4288521666
-    },
-    {
-      "id": "ea6e251f-cd71-4257-8b49-89dcac06be6b",
-      "resources": 412,
-      "color": 4280329463
-    },
-    {
-      "id": "6aab400a-5b99-4155-8f8a-2c8e4b173512",
-      "resources": 953,
-      "color": 4281468536
-    }
-  ]
+    ],
+    "expiry": "2020-03-07T17:09:32.189539Z"
+  }
 }
 ```

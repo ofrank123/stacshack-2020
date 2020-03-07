@@ -1,24 +1,21 @@
 use {
-    crate::game::Game,
+    crate::{board::Board, player::Player},
+    chrono::prelude::*,
     serde::{Deserialize, Serialize},
     uuid::Uuid,
 };
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Request {
-    pub game: Uuid,
-    pub user: Uuid,
-    pub kind: Kind,
+pub enum ClientMessage {
+    Join { username: String, game_id: Uuid },
+    Create { username: String },
+    Move(Move),
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub enum Kind {
-    Join,
-    Fetch,
-    Action {
-        kind: Action,
-        coordinate: (usize, usize),
-    },
+pub struct Move {
+    pub action: Action,
+    pub coordinate: (usize, usize),
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -29,4 +26,18 @@ pub enum Action {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Response(pub Game);
+pub enum ServerMessage {
+    Join {
+        user_id: Uuid,
+    },
+    Create {
+        user_id: Uuid,
+        game_id: Uuid,
+    },
+    Move {
+        last_move: Move,
+        board: Board,
+        players: Vec<Player>,
+        expiry: DateTime<Utc>,
+    },
+}

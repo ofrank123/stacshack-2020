@@ -9,6 +9,7 @@ pub struct Player {
     pub id: Uuid,
     pub resources: u32,
     pub color: u32,
+    pub current: bool,
 }
 
 impl Player {
@@ -17,6 +18,7 @@ impl Player {
             id,
             resources: 0,
             color: thread_rng().gen_range(0x00000000, 0x00ffffff) + 0xff000000,
+            current: false,
         }
     }
 }

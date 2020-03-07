@@ -31,6 +31,7 @@ impl Board {
 pub struct Tile {
     pub kind: Kind,
     pub owner: Option<Uuid>,
+    pub discovered: bool,
 }
 
 impl Default for Tile {
@@ -38,6 +39,7 @@ impl Default for Tile {
         Self {
             kind: Kind::Empty,
             owner: None,
+            discovered: false,
         }
     }
 }
