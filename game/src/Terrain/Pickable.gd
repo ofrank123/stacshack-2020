@@ -15,6 +15,9 @@ func _on_input_event(camera, event, click_position, click_normal, shape_idx):
 	if event is InputEventMouseMotion:
 		inHover = true
 		get_node("..").set_surface_material(0, hoverMaterial)
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			get_node("../..").clicked_on()
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:

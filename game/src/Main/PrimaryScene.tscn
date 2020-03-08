@@ -13,6 +13,7 @@ script = ExtResource( 2 )
 omni_range = 19.1
 
 [node name="TerrainGrid" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -3, 2 )
 script = ExtResource( 1 )
 island_path = "res://src/Terrain/TerrainLib/Island.tscn"
 fog_path = "res://src/Terrain/TerrainLib/Fog/Fog.tscn"

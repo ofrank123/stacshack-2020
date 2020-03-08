@@ -2,6 +2,9 @@ class_name TerrainCell
 
 extends Spatial
 
+onready var _main = get_tree().get_root().get_node("Main")
+onready var _nc = get_tree().get_root().get_node("Main/NetworkClient")
+
 var base_path: NodePath
 var top_path: NodePath
 var light_path: NodePath
@@ -10,9 +13,20 @@ var kind: String = "Normal"
 var defence: String = "None"
 var owner_id: String = ""
 
+var x: int
+var z: int
+
+func clicked_on():
+	if _main.is_turn() && get_node("..").is_adjacent(x, z):
+		if kind == "Hidden":
+			_nc.make_action("Explore", x, z)
+		if !_main.is_player(owner_id):
+			_nc.make_action("Attack", x, z)
+		if _main.is_player(owner_id) and defence != "High":
+			_nc.make_action("Improve", x, z)
+
 func requires_update(server_cell: Dictionary):
 	return kind != server_cell["kind"] or defence != server_cell["defence"]
-
 
 func add_terrain_base(instance_path: String) -> void:
 	remove_terrain_base()

@@ -35,7 +35,6 @@ func updateMap() -> void:
 				color =_main.get_color(owner)
 
 			if !server_cell.empty() && cell.requires_update(server_cell):
-				print("Test")
 				cell.kind = server_cell["kind"]
 				cell.defence = server_cell["defence"]
 				if owner != null:
@@ -58,6 +57,16 @@ func updateMap() -> void:
 					"High":
 						cell.add_terrain_top(defence_high_path, color)
 
+func is_adjacent(x: int, z: int) -> bool:
+	var coords = [[0, 0], [0, 1], [0, -1], [1, 0], [-1, 0]]
+	for coord in coords:
+		var n_x = x + coord[0]
+		var n_z = z + coord[1]
+		if n_x > 0 && n_x < size && n_z > 0 && n_z < size:
+			if _main.is_player(get_cell(n_x, n_z).owner_id):
+				return true
+	return false
+
 
 func get_server_cell(x: int, z: int) -> Dictionary:
 	if server_board != null:
@@ -77,6 +86,8 @@ func init_cells() -> void:
 		for z in range(0, size):
 			var i := (x * size) + z
 			var inst = load(cell_path).instance()
+			inst.x = x;
+			inst.z = z;
 			add_child(inst)
 			inst.translate(Vector3(x * (cell_size + padding), 0, z * (cell_size + padding)))
 			inst.add_terrain_base(island_path)
