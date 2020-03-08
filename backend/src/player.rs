@@ -14,10 +14,10 @@ pub struct Player {
 }
 
 impl Player {
-    pub fn new(name: String) -> Self {
+    pub fn new(name: &str) -> Self {
         Self {
             id: Uuid::new_v4(),
-            name,
+            name: name.to_string(),
             resources: 0,
             color: thread_rng().gen_range(0x00000000, 0x00ffffff) + 0xff000000,
             current: false,

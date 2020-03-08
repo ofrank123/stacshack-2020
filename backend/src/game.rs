@@ -23,7 +23,7 @@ impl Game {
         }
     }
 
-    pub fn add_player(&mut self, username: String) -> Uuid {
+    pub fn add_player(&mut self, username: &str) -> Uuid {
         let player = Player::new(username);
         let id = player.id;
 

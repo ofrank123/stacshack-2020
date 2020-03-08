@@ -1,8 +1,6 @@
 # WebSockets API
 
-## Request
-
-### Examples
+## Request Examples
 
 ```json
 {
@@ -14,78 +12,115 @@
 ```json
 {
   "type": "Join",
-  "username": "Hunter2",
-  "game_id": "929a3d9d-ca90-44d9-b583-ae0dd5ad9fbd"
+  "game_id": 10021,
+  "username": "Hunter2"
 }
 ```
 
 ```json
 {
-  "type": "Move",
-  "action": "Attack",
+  "type": "Action",
+  "user_id": "db6cd159-82a1-4190-9eb0-ebd3df03ffb6",
+  "kind": "Attack",
   "coordinate": [12, 41]
 }
 ```
 
-## Response
-
-### Examples
+## Response Examples
 
 ```json
 {
   "type": "Create",
-  "user_id": "13a94ae5-aa42-4fe5-8bc9-fef5050cbc8a",
-  "game_id": "e3ca0fbc-9113-4027-acd0-971ec0838a00"
+  "user_id": "62933119-9ae7-4a74-9634-88310a6b9a28",
+  "game_id": 48094
 }
 ```
 
 ```json
 {
   "type": "Join",
-  "user_id": "5141d1f2-e39a-4dbf-a3e3-52c2228a93fb"
+  "user_id": "08dab0d1-4383-47f7-8a4b-715bddf091fd"
 }
 ```
 
 ```json
 {
-  "type": "Move",
-  "last_move": {
-    "action": "Attack",
+  "type": "Action",
+  "last_action": {
+    "user_id": "b6aaf29a-aceb-488d-87ac-04bec97d899a",
+    "kind": "Attack",
     "coordinate": [12, 41]
   },
   "board": {
     "size": 16,
     "tiles": [
       {
-        "kind": "Empty",
+        "kind": "Hidden",
         "owner": null,
-        "discovered": false
+        "defence": "None"
       },
       {
-        "kind": "Empty",
+        "kind": "Hidden",
         "owner": null,
-        "discovered": false
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
       },
       ...{
-        "kind": "Empty",
+        "kind": "Hidden",
         "owner": null,
-        "discovered": false
+        "defence": "None"
       },
       {
-        "kind": "Empty",
+        "kind": "Hidden",
         "owner": null,
-        "discovered": false
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
       }
     ]
   },
   "players": [
     {
-      "id": "fa6cbe41-5a3b-4c7b-b9bc-abd4d56e2037",
+      "id": "516c52f6-beb5-4d5c-9872-b8f9e4ecaec0",
+      "name": "hunter2",
       "resources": 0,
-      "color": 4287475721,
+      "color": 4290640121,
+      "current": false
+    },
+    {
+      "id": "9c5df371-c611-43b7-b3e1-62fa44d38838",
+      "name": "player2",
+      "resources": 0,
+      "color": 4282727100,
+      "current": false
+    },
+    {
+      "id": "826f392b-40ed-452e-9776-0e521ac2d7ec",
+      "name": "test",
+      "resources": 0,
+      "color": 4288998153,
+      "current": false
+    },
+    {
+      "id": "1d4d777c-c203-4501-8836-424e91c1b60d",
+      "name": "john",
+      "resources": 0,
+      "color": 4278516739,
       "current": false
     }
   ],
-  "expiry": "2020-03-07T18:59:39.420393Z"
+  "expiry": "2020-03-08T08:25:55.066387Z"
 }
 ```
