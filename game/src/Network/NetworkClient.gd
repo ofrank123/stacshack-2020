@@ -35,9 +35,11 @@ func join_game(g_id: int, username: String) -> void:
 func make_action(kind: String, x: int, z: int) -> void:
 	var packet = {
 		"type": "Action",
+		"kind": kind,
 		"user_id": user_id,
 		"coordinate": [x, z]
 		}
+	print(JSON.print(packet))
 	_client.get_peer(1).put_packet(JSON.print(packet).to_ascii())
 
 func _ready() -> void:

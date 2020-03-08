@@ -30,6 +30,7 @@ func updateMap() -> void:
 			var server_cell := get_server_cell(x, z)
 			var cell := get_cell(x, z)
 			var owner = server_cell["owner"]
+			print(owner)
 			var color := Color.white
 			if owner != null:
 				color =_main.get_color(owner)

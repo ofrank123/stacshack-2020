@@ -8,7 +8,7 @@
 extents = Vector3( 1.6, 3.2, 1.6 )
 
 [node name="Fog" type="MeshInstance"]
-transform = Transform( 1.25, 0, 0, 0, 1, 0, 0, 0, 1.25, 2, 0, 2 )
+transform = Transform( 1.25, 0, 0, 0, 0.75, 0, 0, 0, 1.25, 2, 0, 2 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 1 )
 

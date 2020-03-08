@@ -9,14 +9,18 @@ var base_path: NodePath
 var top_path: NodePath
 var light_path: NodePath
 
-var kind: String = "Normal"
+var kind: String = "Hidden"
 var defence: String = "None"
 var owner_id: String = ""
+
+var updated_once = false
 
 var x: int
 var z: int
 
 func clicked_on():
+	print(owner_id)
+	print(get_node("..").is_adjacent(x, z))
 	if _main.is_turn() && get_node("..").is_adjacent(x, z):
 		if kind == "Hidden":
 			_nc.make_action("Explore", x, z)
@@ -26,7 +30,11 @@ func clicked_on():
 			_nc.make_action("Improve", x, z)
 
 func requires_update(server_cell: Dictionary):
-	return kind != server_cell["kind"] or defence != server_cell["defence"]
+	if !updated_once:
+		updated_once = true
+		return updated_once
+	else:
+		return kind != server_cell["kind"] or defence != server_cell["defence"]
 
 func add_terrain_base(instance_path: String) -> void:
 	remove_terrain_base()
