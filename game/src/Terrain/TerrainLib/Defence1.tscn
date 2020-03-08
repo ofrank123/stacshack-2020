@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://res/obj/Defense/Defense1.obj" type="ArrayMesh" id=1]
+
+[node name="Defence1" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )
+mesh = ExtResource( 1 )
+material/0 = null

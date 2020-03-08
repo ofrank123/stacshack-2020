@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Extractor.obj-650e560a56ac0faddad553b6c2ac732f.mesh"
+
+[deps]
+
+files=[ "res://.import/Extractor.obj-650e560a56ac0faddad553b6c2ac732f.mesh" ]
+
+source_file="res://res/obj/Extractor/Extractor.obj"
+dest_files=[ "res://.import/Extractor.obj-650e560a56ac0faddad553b6c2ac732f.mesh", "res://.import/Extractor.obj-650e560a56ac0faddad553b6c2ac732f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

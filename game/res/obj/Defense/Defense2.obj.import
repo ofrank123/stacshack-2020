@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Defense2.obj-de6ca5f42bc1e123db99034f0a873eb2.mesh"
+
+[deps]
+
+files=[ "res://.import/Defense2.obj-de6ca5f42bc1e123db99034f0a873eb2.mesh" ]
+
+source_file="res://res/obj/Defense/Defense2.obj"
+dest_files=[ "res://.import/Defense2.obj-de6ca5f42bc1e123db99034f0a873eb2.mesh", "res://.import/Defense2.obj-de6ca5f42bc1e123db99034f0a873eb2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

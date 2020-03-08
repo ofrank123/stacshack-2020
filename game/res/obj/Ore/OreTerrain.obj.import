@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/OreTerrain.obj-3634be7a283656bb336517971f9cbc55.mesh"
+
+[deps]
+
+files=[ "res://.import/OreTerrain.obj-3634be7a283656bb336517971f9cbc55.mesh" ]
+
+source_file="res://res/obj/Ore/OreTerrain.obj"
+dest_files=[ "res://.import/OreTerrain.obj-3634be7a283656bb336517971f9cbc55.mesh", "res://.import/OreTerrain.obj-3634be7a283656bb336517971f9cbc55.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
