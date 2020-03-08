@@ -15,7 +15,10 @@ use {
         collections::HashMap,
         env,
         net::{TcpListener, TcpStream},
-        sync::{Arc, Mutex},
+        sync::{
+            mpsc::{channel, Receiver, Sender},
+            Arc, Mutex,
+        },
         thread::{sleep, spawn},
         time::Duration,
     },
@@ -61,7 +64,7 @@ fn game_handler(game_id: u16, state: Arc<Mutex<State>>) {
 
     debug!("set current player");
 
-    for mut ws in connections {
+    for ws in &mut connections {
         ws.write_message(Message::text(
             &serde_json::to_string(&ServerMessage::Action {
                 last_action: None,
@@ -74,7 +77,39 @@ fn game_handler(game_id: u16, state: Arc<Mutex<State>>) {
         .expect("Failed to write message");
     }
 
-    debug!("sent all initial messages");
+    //TODO timout
+
+    loop {
+        let msg = connections[current_player].read_message().unwrap();
+        if msg.is_binary() {
+            match serde_json::from_str::<ClientMessage>(
+                &msg.into_text().expect("Unable to turn message into text"),
+            ) {
+                Ok(ClientMessage::Action(action)) => {
+                    game.action(&action);
+
+                    game.players[current_player].current = false;
+                    current_player = (current_player + 1) % GAME_SIZE;
+                    game.players[current_player].current = true;
+
+                    for ws in &mut connections {
+                        ws.write_message(Message::binary(
+                            serde_json::to_string(&ServerMessage::Action {
+                                last_action: Some(action.clone()),
+                                board: game.board.clone(),
+                                players: game.players.clone(),
+                                expiry: Utc::now() + chrono::Duration::seconds(15),
+                            })
+                            .expect("Failed to serialize ServerMessage")
+                            .into_bytes(),
+                        ))
+                        .expect("Failed to write message");
+                    }
+                }
+                _ => unimplemented!(),
+            }
+        }
+    }
 }
 
 fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) {
@@ -95,9 +130,10 @@ fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) {
 
                 state.lock().unwrap().games.insert(game_id, game);
 
-                ws.write_message(Message::text(
-                    &serde_json::to_string(&ServerMessage::Create { game_id, user_id })
-                        .expect("Failed to serialize ServerMessage"),
+                ws.write_message(Message::binary(
+                    serde_json::to_string(&ServerMessage::Create { game_id, user_id })
+                        .expect("Failed to serialize ServerMessage")
+                        .into_bytes(),
                 ))
                 .expect("Failed to write message");
 
@@ -114,9 +150,10 @@ fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) {
                     .unwrap()
                     .add_player(&username);
 
-                ws.write_message(Message::text(
-                    &serde_json::to_string(&ServerMessage::Join { user_id })
-                        .expect("Failed to serialize ServerMessage"),
+                ws.write_message(Message::binary(
+                    serde_json::to_string(&ServerMessage::Join { user_id })
+                        .expect("Failed to serialize ServerMessage")
+                        .into_bytes(),
                 ))
                 .expect("Failed to write message");
 
