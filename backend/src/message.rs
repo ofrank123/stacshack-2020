@@ -8,19 +8,20 @@ use {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum ClientMessage {
-    Join { username: String, game_id: Uuid },
+    Join { game_id: u16, username: String },
     Create { username: String },
-    Move(Move),
+    Action(Action),
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Move {
-    pub action: Action,
+pub struct Action {
+    pub user_id: Uuid,
+    pub kind: ActionKind,
     pub coordinate: (usize, usize),
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub enum Action {
+pub enum ActionKind {
     Explore,
     Improve,
     Attack,
@@ -34,10 +35,10 @@ pub enum ServerMessage {
     },
     Create {
         user_id: Uuid,
-        game_id: Uuid,
+        game_id: u16,
     },
-    Move {
-        last_move: Move,
+    Action {
+        last_action: Option<Action>,
         board: Board,
         players: Vec<Player>,
         expiry: DateTime<Utc>,

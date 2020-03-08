@@ -3,7 +3,7 @@ use {
     uuid::Uuid,
 };
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Board {
     size: usize,
     tiles: Vec<Tile>,
@@ -18,34 +18,50 @@ impl Board {
         Self { size, tiles }
     }
 
-    pub fn get_tile(&self, x: usize, y: usize) -> &Tile {
-        &self.tiles[x * self.size + y]
-    }
-
     pub fn get_mut_tile(&mut self, x: usize, y: usize) -> &mut Tile {
         &mut self.tiles[x * self.size + y]
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Tile {
-    pub kind: Kind,
+    pub kind: TileKind,
     pub owner: Option<Uuid>,
-    pub discovered: bool,
+    pub defence: Defence,
+}
+
+impl Tile {
+    pub fn increase_defence(&mut self) {
+        self.defence = match self.defence {
+            Defence::None => Defence::Low,
+            Defence::Low => Defence::High,
+            Defence::High => {
+                return;
+            }
+        }
+    }
 }
 
 impl Default for Tile {
     fn default() -> Self {
         Self {
-            kind: Kind::Empty,
+            kind: TileKind::Hidden,
             owner: None,
-            discovered: false,
+            defence: Defence::None,
         }
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
-pub enum Kind {
-    Empty,
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
+pub enum TileKind {
+    Hidden,
+    Normal,
     Resource,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
+pub enum Defence {
+    None,
+    Low,
+    High,
 }
