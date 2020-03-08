@@ -36,8 +36,8 @@ func is_player(uuid: String) -> bool:
 
 func _on_player_state(players_arr: Array) -> void:
 	players = players_arr
+	print(get_player_uuid(client_uuid))
 	resources = get_player_uuid(client_uuid)["resources"]
-	resources = 10
 	emit_signal("resource_change", resources)
 	emit_signal("turn_change", get_current_player_name())
 
@@ -50,7 +50,7 @@ func _on_join(user_id):
 func _ready() -> void:
 	_nc.connect("player_state", self, "_on_player_state")
 	_nc.connect("create", self, "_on_create")
-	_nc.connect("create", self, "_on_join")
+	_nc.connect("join", self, "_on_join")
 	# Twice to make sure everything is inited
 	# Not necessary with regular connection
 	# _nc._on_data_dummy()

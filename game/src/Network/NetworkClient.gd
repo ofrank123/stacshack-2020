@@ -29,6 +29,7 @@ func join_game(g_id: int, username: String) -> void:
 		"game_id": g_id,
 		"username": username
 		}
+	print(JSON.print(packet))
 	_client.get_peer(1).put_packet(JSON.print(packet).to_ascii())
 
 func make_action(kind: String, x: int, z: int) -> void:
