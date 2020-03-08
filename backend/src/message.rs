@@ -13,14 +13,14 @@ pub enum ClientMessage {
     Action(Action),
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Action {
     pub user_id: Uuid,
     pub kind: ActionKind,
     pub coordinate: (usize, usize),
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub enum ActionKind {
     Explore,
     Improve,
