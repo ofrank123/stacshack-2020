@@ -36,7 +36,6 @@ func is_player(uuid: String) -> bool:
 
 func _on_player_state(players_arr: Array) -> void:
 	players = players_arr
-	print(get_player_uuid(client_uuid))
 	resources = get_player_uuid(client_uuid)["resources"]
 	emit_signal("resource_change", resources)
 	emit_signal("turn_change", get_current_player_name())

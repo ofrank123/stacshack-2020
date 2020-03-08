@@ -34,7 +34,7 @@ func requires_update(server_cell: Dictionary):
 		updated_once = true
 		return updated_once
 	else:
-		return kind != server_cell["kind"] or defence != server_cell["defence"]
+		return kind != server_cell["kind"] or defence != server_cell["defence"] or owner_id != server_cell["owner"]
 
 func add_terrain_base(instance_path: String) -> void:
 	remove_terrain_base()
