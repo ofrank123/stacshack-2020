@@ -1,0 +1,1320 @@
+{
+  "type": "Action",
+  "last_action": null,
+  "board": {
+    "size": 16,
+    "tiles": [
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Normal",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Resource",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Resource",
+        "owner": "07d7b431-f1f7-4814-9166-5e2695c2825a",
+        "defence": "Low"
+      },
+      {
+        "kind": "Normal",
+        "owner": null,
+        "defence": "High"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      },
+      {
+        "kind": "Hidden",
+        "owner": null,
+        "defence": "None"
+      }
+    ]
+  },
+  "players": [
+    {
+      "id": "07d7b431-f1f7-4814-9166-5e2695c2825a",
+      "name": "ofrank",
+      "resources": 0,
+      "color": 4284504125,
+      "current": true
+    },
+    {
+      "id": "411a745a-3f3b-4df9-960c-638d6d888465",
+      "name": "joe",
+      "resources": 0,
+      "color": 4280486735,
+      "current": false
+    },
+    {
+      "id": "6e9b1db8-87d5-4557-9ead-d0103d504d40",
+      "name": "joe",
+      "resources": 0,
+      "color": 4291351048,
+      "current": false
+    },
+    {
+      "id": "9f28a113-f978-4722-abd3-35c985d1a6a3",
+      "name": "joe",
+      "resources": 0,
+      "color": 4290314770,
+      "current": false
+    }
+  ],
+  "expiry": "2020-03-08T01:40:03.357382244Z"
+}

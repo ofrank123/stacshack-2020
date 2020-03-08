@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="OmniLight" type="OmniLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, 2 )
+omni_attenuation = 0.210224
