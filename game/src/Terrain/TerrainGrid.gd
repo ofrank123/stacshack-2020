@@ -7,6 +7,7 @@ export var cell_path: String
 
 export var defence_low_path: String
 export var defence_high_path: String
+export var defence_ore_path: String
 
 export var light_path: String
 
@@ -56,6 +57,8 @@ func updateMap() -> void:
 						cell.add_terrain_top(defence_low_path, color)
 					"High":
 						cell.add_terrain_top(defence_high_path, color)
+					"Ore":
+						cell.add_terrain_top(defence_ore_path, color)
 
 func is_adjacent(x: int, z: int) -> bool:
 	var coords = [[0, 0], [0, 1], [0, -1], [1, 0], [-1, 0]]

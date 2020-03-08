@@ -26,7 +26,7 @@ func clicked_on():
 			_nc.make_action("Explore", x, z)
 		if !_main.is_player(owner_id):
 			_nc.make_action("Attack", x, z)
-		if _main.is_player(owner_id) and defence != "High":
+		if _main.is_player(owner_id) and defence != "High" and defence != "Ore":
 			_nc.make_action("Improve", x, z)
 
 func requires_update(server_cell: Dictionary):
