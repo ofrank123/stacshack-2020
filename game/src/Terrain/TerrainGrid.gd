@@ -46,9 +46,10 @@ func init_cells() -> void:
 
 	
 func _on_board_state(arr_server: Array) -> void:
-	cells = arr_server
+	print("Board Array Receieved")
+	#cells = arr_server
 
-func _on_new_move(action: String, coords: Array) -> void:
+func _on_new_move(action: String, kind: String, coords: Array) -> void:
 	# Animate
 	updateMap()
 	pass

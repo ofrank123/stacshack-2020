@@ -15,5 +15,5 @@ omni_range = 19.1
 [node name="TerrainGrid" type="Spatial" parent="."]
 script = ExtResource( 1 )
 island_path = "res://src/Terrain/TerrainLib/Island.tscn"
-fog_path = "res://src/Terrain/TerrainLib/Fog.tscn"
+fog_path = "res://src/Terrain/TerrainLib/Fog/Fog.tscn"
 cell_path = "res://src/Terrain/TerrainCell.tscn"

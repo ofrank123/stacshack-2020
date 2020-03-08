@@ -2,9 +2,6 @@ class_name TerrainCell
 
 extends Spatial
 
-onready var fogMaterial = load("FogMaterial.tres")
-onready var hoverMaterial = load("HoverMaterial.tres")
-
 var base_path: NodePath
 var top_path: NodePath
 
@@ -13,7 +10,7 @@ func add_terrain_base(instance_path: String) -> void:
 		remove_terrain_base()
 	var instance = load(instance_path).instance()
 	# Make material unique
-	instance.set_surface_material(0, fogMaterial)
+	instance.set_surface_material(0, instance.get_surface_material(0).duplicate())
 	# Rotate a random amount
 	instance.rotation.y = (PI / 2) * (randi() % 4)
 	add_child(instance)
