@@ -19,7 +19,7 @@ impl Player {
             id: Uuid::new_v4(),
             name: name.to_string(),
             resources: 0,
-            color: thread_rng().gen_range(0x00000000, 0x00ffffff) + 0xff000000,
+            color: 0,
             current: false,
         }
     }

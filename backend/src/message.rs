@@ -2,6 +2,7 @@ use {
     crate::{board::Board, player::Player},
     chrono::prelude::*,
     serde::{Deserialize, Serialize},
+    tungstenite::Message,
     uuid::Uuid,
 };
 
@@ -10,7 +11,17 @@ use {
 pub enum ClientMessage {
     Join { game_id: u16, username: String },
     Create { username: String },
-    Action(Action),
+    Action(Option<Action>),
+}
+
+impl From<ClientMessage> for Message {
+    fn from(msg: ClientMessage) -> Self {
+        Self::binary(
+            serde_json::to_string(&msg)
+                .expect("Failed to serialize ServerMessage")
+                .into_bytes(),
+        )
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -43,4 +54,14 @@ pub enum ServerMessage {
         players: Vec<Player>,
         expiry: DateTime<Utc>,
     },
+}
+
+impl From<ServerMessage> for Message {
+    fn from(msg: ServerMessage) -> Self {
+        Self::binary(
+            serde_json::to_string(&msg)
+                .expect("Failed to serialize ServerMessage")
+                .into_bytes(),
+        )
+    }
 }

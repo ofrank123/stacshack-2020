@@ -7,6 +7,7 @@ mod message;
 mod player;
 
 use {
+    board::TileKind,
     chrono::prelude::*,
     game::Game,
     message::{ClientMessage, ServerMessage},
@@ -25,7 +26,7 @@ use {
     tungstenite::{
         accept,
         handshake::server::{Request, Response},
-        Message, WebSocket,
+        Message, Result, WebSocket,
     },
     uuid::Uuid,
 };
@@ -33,13 +34,15 @@ use {
 const TIMEOUT_MS: u64 = 15_000;
 const RESOURCE_CHANCE: f64 = 0.10;
 const GAME_SIZE: usize = 2;
+const BOARD_SIZE: usize = 16;
+const COLORS: [u32; 4] = [0x32a852ff, 0x9e32a8ff, 0xff0000ff, 0xfbff00ff];
 
 struct State {
     games: HashMap<u16, Game>,
     connections: HashMap<u16, Vec<WebSocket<TcpStream>>>,
 }
 
-fn game_handler(game_id: u16, state: Arc<Mutex<State>>) {
+fn game_handler(game_id: u16, state: Arc<Mutex<State>>) -> Result<()> {
     // wait until 4 connections are in state then continue
     while state
         .lock()
@@ -50,7 +53,7 @@ fn game_handler(game_id: u16, state: Arc<Mutex<State>>) {
         .len()
         != GAME_SIZE
     {
-        sleep(Duration::from_millis(1000));
+        sleep(Duration::from_millis(10));
     }
 
     info!("All players connected, starting game!");
@@ -58,52 +61,69 @@ fn game_handler(game_id: u16, state: Arc<Mutex<State>>) {
     let mut game = state.lock().unwrap().games.remove(&game_id).unwrap();
     let mut connections = state.lock().unwrap().connections.remove(&game_id).unwrap();
 
-    // Send initial state to all players
     let mut current_player = 0;
     game.players[current_player].current = true;
+
+    let mut rng = thread_rng();
+    for (i, player) in game.players.iter_mut().enumerate() {
+        let x = rng.gen_range(0, BOARD_SIZE);
+        let y = rng.gen_range(0, BOARD_SIZE);
+
+        let tile = game.board.get_mut_tile(x, y);
+        tile.kind = if rng.gen::<f64>() < RESOURCE_CHANCE {
+            TileKind::Resource
+        } else {
+            TileKind::Normal
+        };
+        tile.owner = Some(player.id);
+
+        player.color = COLORS[i];
+    }
 
     debug!("set current player");
 
     for ws in &mut connections {
-        ws.write_message(Message::text(
-            &serde_json::to_string(&ServerMessage::Action {
+        ws.write_message(
+            ServerMessage::Action {
                 last_action: None,
                 board: game.board.clone(),
                 players: game.players.clone(),
                 expiry: Utc::now() + chrono::Duration::seconds(15),
-            })
-            .expect("Failed to serialize ServerMessage"),
-        ))
-        .expect("Failed to write message");
+            }
+            .into(),
+        )?;
     }
+
+    debug!("sent initial state");
 
     //TODO timout
 
     loop {
-        let msg = connections[current_player].read_message().unwrap();
+        let msg = connections[current_player].read_message()?;
         if msg.is_binary() {
             match serde_json::from_str::<ClientMessage>(
                 &msg.into_text().expect("Unable to turn message into text"),
             ) {
                 Ok(ClientMessage::Action(action)) => {
-                    game.action(&action);
+                    debug!("received action: {:?}", action);
+                    if action.is_some() {
+                        game.action(&action.clone().unwrap());
+                    }
 
                     game.players[current_player].current = false;
                     current_player = (current_player + 1) % GAME_SIZE;
                     game.players[current_player].current = true;
 
                     for ws in &mut connections {
-                        ws.write_message(Message::binary(
-                            serde_json::to_string(&ServerMessage::Action {
-                                last_action: Some(action.clone()),
+                        ws.write_message(
+                            ServerMessage::Action {
+                                last_action: action.clone(),
                                 board: game.board.clone(),
                                 players: game.players.clone(),
                                 expiry: Utc::now() + chrono::Duration::seconds(15),
-                            })
-                            .expect("Failed to serialize ServerMessage")
-                            .into_bytes(),
-                        ))
-                        .expect("Failed to write message");
+                            }
+                            .into(),
+                        )?;
                     }
                 }
                 _ => unimplemented!(),
@@ -112,30 +132,23 @@ fn game_handler(game_id: u16, state: Arc<Mutex<State>>) {
     }
 }
 
-fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) {
+fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) -> Result<()> {
     debug!("Handling new connection: {:?}", ws);
-    // create a new game and put connection in global state
-    // or
-    // place connection in existing state
 
-    let msg = ws.read_message().unwrap();
+    let msg = ws.read_message()?;
     if msg.is_binary() {
         match serde_json::from_str::<ClientMessage>(
             &msg.into_text().expect("Unable to turn message into text"),
         ) {
             Ok(ClientMessage::Create { username }) => {
-                let mut game = Game::new(16);
+                let mut game = Game::new(BOARD_SIZE);
                 let game_id = thread_rng().gen();
                 let user_id = game.add_player(&username);
 
                 state.lock().unwrap().games.insert(game_id, game);
 
-                ws.write_message(Message::binary(
-                    serde_json::to_string(&ServerMessage::Create { game_id, user_id })
-                        .expect("Failed to serialize ServerMessage")
-                        .into_bytes(),
-                ))
-                .expect("Failed to write message");
+                ws.write_message(ServerMessage::Create { game_id, user_id }.into())
+                    .expect("Failed to write message");
 
                 state.lock().unwrap().connections.insert(game_id, vec![ws]);
 
@@ -150,12 +163,8 @@ fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) {
                     .unwrap()
                     .add_player(&username);
 
-                ws.write_message(Message::binary(
-                    serde_json::to_string(&ServerMessage::Join { user_id })
-                        .expect("Failed to serialize ServerMessage")
-                        .into_bytes(),
-                ))
-                .expect("Failed to write message");
+                ws.write_message(ServerMessage::Join { user_id }.into())
+                    .expect("Failed to write message");
 
                 // add socket to game connections
                 state
@@ -169,6 +178,8 @@ fn connection_handler(mut ws: WebSocket<TcpStream>, state: Arc<Mutex<State>>) {
             _ => unimplemented!(),
         }
     }
+
+    Ok(())
 }
 
 fn main() {

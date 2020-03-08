@@ -44,6 +44,7 @@ impl Game {
                     return;
                 }
 
+                tile.owner = Some(action.user_id);
                 tile.kind = if thread_rng().gen::<f64>() < crate::RESOURCE_CHANCE {
                     TileKind::Resource
                 } else {
@@ -54,6 +55,10 @@ impl Game {
                 if tile.owner != Some(action.user_id) {
                     error!("Trying to improve a tile owned by another player");
                     return;
+                }
+
+                if tile.kind == TileKind::Resource {
+                    tile.defence = Defence::Ore;
                 }
 
                 if tile.defence == Defence::High {

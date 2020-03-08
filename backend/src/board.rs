@@ -35,7 +35,7 @@ impl Tile {
         self.defence = match self.defence {
             Defence::None => Defence::Low,
             Defence::Low => Defence::High,
-            Defence::High => {
+            _ => {
                 return;
             }
         }
@@ -64,4 +64,5 @@ pub enum Defence {
     None,
     Low,
     High,
+    Ore,
 }
