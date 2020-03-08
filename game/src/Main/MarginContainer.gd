@@ -6,4 +6,4 @@ onready var _nc = _main.get_node("NetworkClient")
 func _on_create_gui_input(event) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == BUTTON_LEFT:
-			print("mouse press")
+			load("res://src/Main/CreateMenu.tscn")

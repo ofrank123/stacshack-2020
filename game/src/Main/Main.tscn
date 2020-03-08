@@ -9,7 +9,6 @@
 script = ExtResource( 3 )
 
 [node name="MarginContainer" parent="." instance=ExtResource( 4 )]
-visible = false
 
 [node name="NetworkClient" type="Node" parent="."]
 script = ExtResource( 2 )
